@@ -28,7 +28,7 @@ class WorkoutUpdate(BaseModel):
 
     @field_validator("date")
     @classmethod
-    def validate_date_bounds(cls, v: date | None) -> date | None:
+    def validate_date_bounds(cls, v: Optional[date]) -> Optional[date]:
         if v is not None:
             if v > date.today():
                 raise ValueError("Workout date cannot be in the future")
